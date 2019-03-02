@@ -30,7 +30,7 @@ sudo apt-get update
 sudo apt-get install unifi -y
 
 #Adjust memory usage unifi
-sudo echo 'unifi.xms=512' | sudo tee -a /var/lib/unifi/system.properties
+sudo echo -e 'unifi.xms=512' | sudo tee -a /var/lib/unifi/system.properties
 
 #Remove default Mongo database
 echo 'ENABLE_MONGODB=no' | sudo tee -a /etc/mongodb.conf > /dev/null
