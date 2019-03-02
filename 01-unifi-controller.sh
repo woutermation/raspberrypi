@@ -43,5 +43,9 @@ sudo reboot
 #Check swap file status
 #sudo systemctl status dphys-swapfile
 
+#check with
+#sudo service unifi status
+#browse to http://<your-pi-ip>:8443
+
 #Run script on Pi with
 #wget -O - https://raw.githubusercontent.com/wdedood/raspberrypi/master/01-unifi-controller.sh | sudo bash
