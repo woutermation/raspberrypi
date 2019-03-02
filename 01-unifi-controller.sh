@@ -10,7 +10,9 @@ echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' | s
 echo -e 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' | sudo tee --append /etc/apt/sources.list
 
 #install java 8
-sudo apt-get update
+sudo apt-get
+#accept license (silent install)
+sudo echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 sudo apt-get install oracle-java8-installer -y
 sudo apt-get install oracle-java8-set-default -y
 #remove old Java
@@ -24,12 +26,21 @@ java -version
 echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee -a /etc/apt/sources.list.d/ubnt.list > /dev/null
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
 sudo apt-get update
-#Installeer Unifi controller
+#Install Unifi controller
 sudo apt-get install unifi -y
 
-#Aanpassen geheugen gebruik unifi.
+#Adjust memory usage unifi
 sudo echo 'unifi.xms=512' | sudo tee -a /var/lib/unifi/system.properties
+
+#Remove default Mongo database
+echo 'ENABLE_MONGODB=no' | sudo tee -a /etc/mongodb.conf > /dev/null
 
 #Disable swap file
 sudo systemctl disable dphys-swapfile
 sudo reboot
+
+#Check swap file status
+#sudo systemctl status dphys-swapfile
+
+#Run script on Pi with
+#wget -O - https://raw.githubusercontent.com/wdedood/raspberrypi/master/01-unifi-controller.sh | sudo bash

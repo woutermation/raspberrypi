@@ -1,8 +1,6 @@
-#Status check
-sudo systemctl status dphys-swapfile
 
-#Verwijderen default Mongo database
-echo 'ENABLE_MONGODB=no' | sudo tee -a /etc/mongodb.conf > /dev/null
+
+
 
 #Restart de pi
 sudo reboot
