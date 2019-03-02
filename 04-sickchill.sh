@@ -23,7 +23,7 @@ SR_DATA=/home/pi/.sickchill        #$DATA_DIR, the location of sickbeard.db, cac
 ##
 ## EXAMPLE if want to run as different user
 ## add SR_USER=username to /etc/default/sickrage
-## otherwise default sickrage is used' | sudo tee -a /etc/default/sickchill > /dev/null
+## otherwise default sickrage is used' | sudo tee /etc/default/sickchill > /dev/null
 
 #Update the boot sequence
 sudo update-rc.d -f sickchill defaults
