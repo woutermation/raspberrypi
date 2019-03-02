@@ -10,7 +10,7 @@ echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' | s
 echo -e 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' | sudo tee --append /etc/apt/sources.list
 
 #install java 8
-sudo apt-get
+sudo apt-get update
 #accept license (silent install)
 sudo echo 'oracle-java8-installer shared/accepted-oracle-license-v1-1 select true' | sudo /usr/bin/debconf-set-selections
 sudo apt-get install oracle-java8-installer -y
