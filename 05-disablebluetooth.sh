@@ -5,7 +5,7 @@ dtoverlay=pi3-disable-bt' | sudo tee -a /boot/config.txt > /dev/null
 
 #Disable related services
 sudo systemctl disable hciuart.service
-sudo systemctl disable bluealsa.service
+#sudo systemctl disable bluealsa.service
 sudo systemctl disable bluetooth.service
 
 #Run script on Pi with
