@@ -10,6 +10,8 @@ git clone https://github.com/SickChill/SickChill.git ~/.sickchill
 sudo cp ~/.sickchill/runscripts/init.ubuntu /etc/init.d/sickchill
 #Make the script executable
 sudo chmod +x /etc/init.d/sickchill
+#change opt dir security
+sudo chmod 755 /opt/sickchill
 
 ## Make the /etc/default/sickchill file for sickchill to run properly
 echo '
