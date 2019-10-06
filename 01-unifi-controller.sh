@@ -39,6 +39,7 @@ echo 'ENABLE_MONGODB=no' | sudo tee -a /etc/mongodb.conf > /dev/null
 #Disable swap file
 sudo systemctl disable dphys-swapfile
 #Reboot
+sleep 5
 sudo reboot
 
 #Check swap file status

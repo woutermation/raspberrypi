@@ -1,3 +1,6 @@
+#Change timezone
+sudo timedatectl set-timezone Europe/Amsterdam
+
 #Get all updates and start upgrade
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -5,8 +8,7 @@ sudo apt-get upgrade -y
 #if needed upgrade firmware
 #sudo apt-get install rpi-update && echo Y | sudo rpi-update
 
-#Change timezone
-sudo timedatectl set-timezone Europe/Amsterdam
+
 
 #Reboot
 sudo reboot
