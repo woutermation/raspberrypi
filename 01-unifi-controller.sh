@@ -46,6 +46,14 @@ sudo systemctl disable dphys-swapfile
 sleep 5
 sudo reboot
 
+#cert
+sudo keytool -delete -alias unifi -keystore /var/lib/unifi/keystore
+#The default keystore password is aircontrolenterprise
+openssl pkcs12 -export -in woutert.net.crt -inkey woutert.net.key  -out woutert.net.temp -passout pass:aircontrolenterprise -name unifi
+keytool -importkeystore -srckeystore woutert.net.temp -srcstoretype pkcs12 -srcstorepass aircontrolenterprise -destkeystore /var/lib/unifi/keystore -deststorepass aircontrolenterprise -deststoretype pkcs12 -alias unifi -trustcacerts
+
+openssl pkcs12 -export -nodes -out woutert.net.temp -inkey woutert.net.key -in woutert.net.crt -certfile woutert.net.bundle -passout pass:aircontrolenterprise -name unifi
+
 #Check swap file status
 #sudo systemctl status dphys-swapfile
 
