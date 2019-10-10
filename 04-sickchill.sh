@@ -1,6 +1,9 @@
 #Install pre-req
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C2518248EEA14886
 sudo apt-get update
 sudo apt-get install git-core python-cheetah python-lxml python-pip python-dev git libssl-dev libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-dev libffi-dev -y
+
+
 #Install pyopenssl
 sudo pip install pyopenssl
 #clone sickchill
