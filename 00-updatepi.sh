@@ -1,3 +1,5 @@
+#place ssh.txt in windows volume to allow ssh
+
 #Change timezone
 sudo timedatectl set-timezone Europe/Amsterdam
 
