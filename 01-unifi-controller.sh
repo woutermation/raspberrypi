@@ -46,6 +46,17 @@ sudo systemctl disable dphys-swapfile
 sleep 5
 sudo reboot
 
+
+#SSL cert
+#find alias
+sudo keytool -list -keystore /tmp/certificate.pfx -storetype pkcs12
+#move current
+sudo mv /var/lib/unifi/keystore /var/lib/unifi/keystore.orig
+#install cert
+sudo keytool -importkeystore -srckeystore '/home/pi/mappings/nas-download/ster.woutert.net 2017.pfx' -srcstoretype pkcs12 -srcalias te-dd7778a0-603e-45e7-9ae2-abbf0fc33fa9 -destkeystore /var/lib/unifi/keystore -deststoretype jks -destalias unif -deststorepass [aircontrolenterprise] -srcstorepass [xxxxx]
+sudo keytool -importkeystore -srckeystore /var/lib/unifi/keystore -destkeystore /var/lib/unifi/keystore -deststoretype pkcs12 -destkeypass aircontrolenterprise
+
+
 #Check swap file status
 #sudo systemctl status dphys-swapfile
 
