@@ -1,4 +1,10 @@
 #Install sabnzbdplus
+
+
+
+
+#sudo apt-get dist-upgrade
+
 sudo apt-get update
 sudo apt-get install sabnzbdplus -y
 #Need to edit the default configuration file to allow web access,copy of the orginal file (in case of any mistakes down the road)
