@@ -46,6 +46,7 @@ sudo systemctl disable dphys-swapfile
 sleep 5
 sudo reboot
 
+<<<<<<< HEAD
 #cert
 sudo keytool -delete -alias unifi -keystore /var/lib/unifi/keystore
 #The default keystore password is aircontrolenterprise
@@ -53,6 +54,18 @@ openssl pkcs12 -export -in woutert.net.crt -inkey woutert.net.key  -out woutert.
 keytool -importkeystore -srckeystore woutert.net.temp -srcstoretype pkcs12 -srcstorepass aircontrolenterprise -destkeystore /var/lib/unifi/keystore -deststorepass aircontrolenterprise -deststoretype pkcs12 -alias unifi -trustcacerts
 
 openssl pkcs12 -export -nodes -out woutert.net.temp -inkey woutert.net.key -in woutert.net.crt -certfile woutert.net.bundle -passout pass:aircontrolenterprise -name unifi
+=======
+
+#SSL cert (https://kallelilja.com/2017/07/install-pfx-certificate-unifi-controller/)
+#find alias
+sudo keytool -list -keystore /tmp/certificate.pfx -storetype pkcs12
+#move current
+sudo mv /var/lib/unifi/keystore /var/lib/unifi/keystore.orig
+#install cert
+sudo keytool -importkeystore -srckeystore '/home/pi/mappings/nas-download/ster.woutert.net 2017.pfx' -srcstoretype pkcs12 -srcalias te-dd7778a0-603e-45e7-9ae2-abbf0fc33fa9 -destkeystore /var/lib/unifi/keystore -deststoretype jks -destalias unif -deststorepass [aircontrolenterprise] -srcstorepass [xxxxx]
+sudo keytool -importkeystore -srckeystore /var/lib/unifi/keystore -destkeystore /var/lib/unifi/keystore -deststoretype pkcs12 -destkeypass aircontrolenterprise
+
+>>>>>>> 69222cac7e8f1a135d7021f54c515f6691e9398a
 
 #Check swap file status
 #sudo systemctl status dphys-swapfile

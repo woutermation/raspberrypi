@@ -30,7 +30,7 @@ SR_DATA=/home/pi/.sickchill        #$DATA_DIR, the location of sickbeard.db, cac
 #Update the boot sequence
 sudo update-rc.d -f sickchill defaults
 #Reboot
-sudo reboot
+#sudo reboot
 
 #check with
 #sudo service sickchill status
