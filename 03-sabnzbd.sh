@@ -1,5 +1,17 @@
 #Install sabnzbdplus
+
+echo 'deb http://ftp.nl.debian.org/debian/ buster main contrib non-free' | sudo tee -a /etc/apt/sources.list > /dev/null
+echo 'deb-src http://ftp.nl.debian.org/debian/ buster main contrib non-free' | sudo tee -a /etc/apt/sources.list > /dev/null
+
+sudo gpg --keyserver keyserver.ubuntu.com --recv-key 648ACFD622F3D138
+sudo gpg -a --export 648ACFD622F3D138 | sudo apt-key add - 
+sudo gpg --keyserver keyserver.ubuntu.com --recv-key DCC9EFBF77E11517
+sudo gpg -a --export DCC9EFBF77E11517 | sudo apt-key add - 
+sudo gpg --keyserver keyserver.ubuntu.com --recv-key 04EE7237B7D453EC
+sudo gpg -a --export 04EE7237B7D453EC | sudo apt-key add - 
 sudo apt-get update
+
+#sudo apt-get dist-upgrade
 sudo apt-get install sabnzbdplus -y
 #Need to edit the default configuration file to allow web access,copy of the orginal file (in case of any mistakes down the road)
 sudo cp /etc/default/sabnzbdplus /etc/default/sabnzbdplus.old
@@ -32,9 +44,9 @@ EXTRAOPTS=
 ' | sudo tee /etc/default/sabnzbdplus > /dev/null
 
 #Install unrar
-wget http://sourceforge.net/projects/bananapi/files/unrar_5.2.6-1.arm6_armhf.deb
-sudo dpkg -i unrar_5.2.6-1.arm6_armhf.deb
-sudo rm unrar_5.2.6-1.arm6_armhf.deb
+#wget http://sourceforge.net/projects/bananapi/files/unrar_5.2.6-1.arm6_armhf.deb
+#sudo dpkg -i unrar_5.2.6-1.arm6_armhf.deb
+#sudo rm unrar_5.2.6-1.arm6_armhf.deb
 
 #Restart sabnzbd
 sudo service sabnzbdplus restart

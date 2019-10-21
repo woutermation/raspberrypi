@@ -46,7 +46,6 @@ sudo systemctl disable dphys-swapfile
 sleep 5
 sudo reboot
 
-
 #SSL cert (https://kallelilja.com/2017/07/install-pfx-certificate-unifi-controller/)
 #find alias
 sudo keytool -list -keystore /tmp/certificate.pfx -storetype pkcs12
