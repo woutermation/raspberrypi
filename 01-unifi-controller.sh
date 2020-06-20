@@ -27,7 +27,7 @@ sudo apt-get autoremove -Y
 java -version
 
 #add unifi packet source
-echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee -a /etc/apt/sources.list.d/ubnt.list > /dev/null
+echo 'deb https://www.ui.com/downloads/unifi/debian stable ubiquiti' | sudo tee -a /etc/apt/sources.list.d/ubnt.list > /dev/null
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
 sudo apt-get update
 #Install Unifi controller
