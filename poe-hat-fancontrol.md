@@ -34,3 +34,9 @@ udevadm control --reload-rules && udevadm trigger
   
 And listen...........  
   
+Check temp with:  
+  
+```bash
+/usr/bin/vcgencmd measure_temp
+```  
+  
